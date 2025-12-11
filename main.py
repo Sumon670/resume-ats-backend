@@ -13,13 +13,15 @@ genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 app = FastAPI()
 
 
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"], 
-    allow_credentials=True,
+    allow_origins=["http://localhost:4200"],  
+    allow_credentials=False,                  
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 
 async def extract_text_from_pdf(file: UploadFile):
